@@ -115,9 +115,16 @@
     .as-featured-in .feature {
         font-size: 16px;
     }
+
+    .main-footer {
+        padding: 88px 44px 32px 44px;
+    }
 }
 
 @media screen and (max-width: 480px) {
+  .logo-header-img{
+    width: 220px;
+  }
 }
 
 @media screen and (max-width: 320px) {
