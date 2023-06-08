@@ -8,6 +8,10 @@
         width: 350px;
         height: auto;
     }
+
+    .main-post .list-posts {
+        grid-template-columns: repeat(3, 250px);
+    }
 }
 
 @media screen and (max-width: 992px) {
@@ -26,19 +30,28 @@
     }
 
     .post-title--featured {
-        font-size: 48px;
         padding-left: 20px;
         padding-right: 20px;
         padding-top: 40px;
         padding-bottom: 30px;
     }
 
-    .post-desc--featured {
+    .overall .post-title,
+    .post-title--featured {
+        font-size: 48px;
+    }
+
+    .post-desc--featured,
+    .overall .post-desc {
         font-size: 18px;
     }
 
     .featured-post {
         padding-top: 64px;
+    }
+
+    .main-post .list-posts {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -63,12 +76,17 @@
     }
 
     .post-title--featured {
-        font-size: 42px;
         padding-top: 36px;
         padding-bottom: 28px;
     }
 
-    .post-desc--featured {
+    .overall .post-title,
+    .post-title--featured {
+        font-size: 42px;
+    }
+
+    .post-desc--featured,
+    .overall .post-desc {
         font-size: 16px;
     }
 
@@ -82,17 +100,33 @@
         padding: 0 20px;
         gap: 20px;
     }
+    .detail-wrapper {
+        padding: 0 20px;
+    }
+
+    .main-post .list-posts {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media screen and (max-width: 576px) {
     .post-title--featured {
-        font-size: 36px;
         padding-top: 32px;
         padding-bottom: 24px;
     }
 
+    .overall .post-title,
+    .post-title--featured {
+        font-size: 36px;
+    }
+
     .post-desc--featured {
         margin: 0 20px;
+    }
+
+    .overall .post-desc {
+        margin-top: 24px;
+        margin-bottom: 36px;
     }
 
     .heading-secondary {
@@ -104,12 +138,13 @@
         padding: 56px 0;
     }
 
-    .all-articles .list-posts {
-        grid-template-columns: 1fr;
+    .list-posts .post-img {
+        width: 100%;
     }
 
-    .all-articles .list-posts .post-img {
-        width: 100%;
+    .all-articles .list-posts,
+    .main-post .list-posts {
+        grid-template-columns: 1fr;
     }
 
     .as-featured-in .feature {
@@ -119,12 +154,47 @@
     .main-footer {
         padding: 88px 44px 32px 44px;
     }
+
+    .author {
+        flex-wrap: wrap;
+        gap: 23px;
+        margin-bottom: 32px;
+    }
+
+    .author-intro,
+    .author-networks {
+        width: 100%;
+    }
+    .author-networks .network {
+        width: 50%;
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 480px) {
-  .logo-header-img{
-    width: 220px;
-  }
+    .logo-header-img {
+        width: 220px;
+    }
+    .author-bio {
+        flex-direction: column;
+    }
+
+    .sharing .item span {
+        display: none;
+    }
+
+    .sharing-wrapper .title {
+        display: block;
+    }
+
+    .btn--submit {
+        left: 0;
+        top: 105%;
+    }
+
+    .form {
+        margin-bottom: 48px;
+    }
 }
 
 @media screen and (max-width: 320px) {
