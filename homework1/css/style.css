@@ -80,3 +80,26 @@
 .all-articles {
     padding: 64px 0;
 }
+
+.as-featured-in {
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+    background-color: #000;
+    padding: 18px 0;
+    overflow: hidden;
+}
+
+.as-featured-in .feature {
+    font-family: 'SF Pro Text';
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #fff;
+    min-width: fit-content;
+}
+
+.as-featured-in .feature:nth-child(odd) {
+    font-weight: 700;
+}
