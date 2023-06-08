@@ -24,10 +24,6 @@
     box-sizing: border-box;
 }
 
-html {
-    font-size: 62.5%;
-}
-
 ul {
     list-style: none;
 }
@@ -37,14 +33,4 @@ a:visited,
 a:active {
     text-decoration: none;
     color: black;
-}
-
-a {
-    display: block;
-}
-
-img {
-    display: block;
-    width: 100%;
-    height: auto;
 }

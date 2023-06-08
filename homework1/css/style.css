@@ -1,0 +1,53 @@
+.logo-header {
+    display: block;
+}
+
+.logo-header-img {
+    width: 397px;
+    height: 39px;
+    display: block;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 63.58px;
+    padding-right: 61px;
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.16);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 36px;
+}
+
+.nav-link {
+    font-family: 'New York', serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.7;
+    text-align: center;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    display: block;
+    padding: 49px 0;
+    border-bottom: 2px solid #fff;
+}
+
+.nav-link:hover {
+    border-bottom-color: #000;
+}
+
+.menu-bar {
+    width: 24px;
+    height: 17px;
+    display: none;
+    cursor: pointer;
+}
+
+.menu-bar__line {
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+}
