@@ -76,6 +76,12 @@
         padding-top: 52px;
         padding-bottom: 52px;
     }
+
+    .all-articles .list-posts {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 20px;
+        gap: 20px;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -87,6 +93,23 @@
 
     .post-desc--featured {
         margin: 0 20px;
+    }
+
+    .heading-secondary {
+        font-size: 32px;
+        margin-bottom: 29px;
+    }
+
+    .all-articles {
+        padding: 56px 0;
+    }
+
+    .all-articles .list-posts {
+        grid-template-columns: 1fr;
+    }
+
+    .all-articles .list-posts .post-img {
+        width: 100%;
     }
 }
 

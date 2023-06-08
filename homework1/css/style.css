@@ -54,40 +54,15 @@
 }
 
 /* MAIN  */
-.post-title {
-    font-family: 'New York', serif;
-    display: block;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-}
-
 .post-title--featured {
     font-size: 54px;
     padding: 44px 20px 32px 20px;
-}
-
-.post-desc {
-    font-family: 'SF Mono';
-    line-height: 1.7;
-    text-align: center;
 }
 
 .post-desc--featured {
     font-size: 20px;
     padding: 0 20px;
     margin: 0 80px;
-}
-
-.horizontal-line {
-    width: 100%;
-    height: 2px;
-    background-color: #000;
-    margin: 0 auto;
-}
-
-.horizontal-line--short {
-    max-width: 640px;
 }
 
 /* featured post  */
@@ -99,4 +74,9 @@
     margin: 0 auto;
     padding-top: 77px;
     padding-bottom: 34px;
+}
+
+/* all articles  */
+.all-articles {
+    padding: 64px 0;
 }
