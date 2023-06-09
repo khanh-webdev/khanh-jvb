@@ -346,3 +346,54 @@
 .form {
     position: relative;
 }
+
+/* READ ME  */
+.read-me-header {
+    background-color: #ffd900;
+    padding: 32px 140px;
+    margin-bottom: 100px;
+}
+
+.version {
+    font-family: 'SF Mono';
+    font-size: 20px;
+    margin-bottom: 14px;
+}
+
+.main-content {
+    padding: 0 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+    margin-bottom: 292px;
+}
+
+.how-to-use {
+    text-align: justify;
+}
+
+.desc {
+    font-family: 'SF Pro Text';
+    font-size: 20px;
+    line-height: 24px;
+    border-left: 6px solid #000;
+    padding-left: 26px;
+    max-width: 923px;
+}
+
+.list-fonts {
+    margin-top: 60px;
+}
+
+.font-desc .item::before {
+    content: '-';
+    margin-right: 10px;
+}
+
+.font-type {
+    margin-bottom: 12px;
+}
+
+.font-item:not(:last-child) {
+    margin-bottom: 48px;
+}

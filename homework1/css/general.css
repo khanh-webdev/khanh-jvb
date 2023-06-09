@@ -69,12 +69,33 @@ h3 {
     transform: translate(-50%, -50%);
 }
 
-.heading-secondary {
+h1,
+h2,
+h3,
+h4,
+h5 {
     font-family: 'New York', serif;
-    font-weight: 700;
+}
+
+.heading-primary {
+    font-size: 200px;
+}
+
+.heading-secondary {
     font-size: 44px;
     text-align: center;
     margin-bottom: 39px;
+}
+
+.heading-quaternary {
+    font-size: 36px;
+    line-height: 46px;
+    text-align: center;
+}
+
+.heading-quinary {
+    font-size: 44px;
+    margin-bottom: 24px;
 }
 
 .home-page .list-posts {
@@ -126,13 +147,6 @@ figcaption {
     font-size: 16px;
     padding: 12px 20px;
     margin: 0 auto;
-}
-
-.heading-quaternary {
-    font-family: 'New York';
-    font-size: 36px;
-    line-height: 46px;
-    text-align: center;
 }
 
 input,
