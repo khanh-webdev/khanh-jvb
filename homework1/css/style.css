@@ -82,6 +82,10 @@
     padding: 64px 0;
 }
 
+.all-articles .list-view-mobile {
+    display: none;
+}
+
 .as-featured-in {
     display: flex;
     justify-content: center;

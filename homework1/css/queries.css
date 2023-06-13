@@ -137,6 +137,9 @@
         padding-left: 20px;
         padding-right: 20px;
     }
+    .detail-wrapper .detail [class^='view'] > ul {
+        padding-left: 40px;
+    }
 
     .main-post .list-posts {
         grid-template-columns: repeat(2, 1fr);
@@ -201,12 +204,20 @@
         padding: 56px 0;
     }
 
+    .all-articles .list-view-mobile {
+        display: block;
+    }
+    
+    .all-articles .list-view-normal {
+        display: none;
+    }
+
     .detail-wrapper .detail .view-mobile {
         display: block;
     }
 
     .detail-wrapper .detail .view-normal {
-        display: block;
+        display: none;
     }
 
     .list-posts .post-img {
