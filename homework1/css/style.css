@@ -176,10 +176,14 @@
 }
 
 .detail-wrapper > :not(.detail),
-.detail-wrapper .detail > :not(figure) {
+.detail-wrapper .detail [class^='view'] > :not(figure) {
     max-width: 640px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.detail-wrapper .detail .view-mobile {
+    display: none;
 }
 
 .author {

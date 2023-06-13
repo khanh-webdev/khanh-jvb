@@ -133,7 +133,7 @@
     }
 
     .detail-wrapper > :not(.detail),
-    .detail-wrapper .detail > :not(figure) {
+    .detail-wrapper .detail [class^='view'] > :not(figure) {
         padding-left: 20px;
         padding-right: 20px;
     }
@@ -199,6 +199,14 @@
 
     .all-articles {
         padding: 56px 0;
+    }
+
+    .detail-wrapper .detail .view-mobile {
+        display: block;
+    }
+
+    .detail-wrapper .detail .view-normal {
+        display: block;
     }
 
     .list-posts .post-img {
@@ -298,10 +306,5 @@
 
     .about-me {
         font-size: 13px;
-    }
-
-    .detail p:nth-child(odd),
-    .detail ul {
-        display: none;
     }
 }
