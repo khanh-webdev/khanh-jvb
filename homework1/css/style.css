@@ -63,7 +63,7 @@
 .post-desc--featured {
     font-size: 20px;
     padding: 0 20px;
-    margin: 0 80px;
+    margin: 0 120px;
 }
 
 /* featured post  */
@@ -95,7 +95,7 @@
     font-family: 'SF Pro Text';
     font-size: 20px;
     line-height: 28px;
-    letter-spacing: 1.2px;
+    letter-spacing: 1.6px;
     text-transform: uppercase;
     color: #fff;
     min-width: fit-content;
@@ -172,8 +172,15 @@
 }
 
 .detail-wrapper {
-    max-width: 640px;
+    max-width: 854px;
     margin: 0 auto;
+}
+
+.detail-wrapper > :not(.detail),
+.detail-wrapper .detail > :not(figure) {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .author {
@@ -237,7 +244,7 @@
 
 .detailed-post .detail ul {
     margin-top: -15px;
-    margin-left: 15px;
+    padding-left: 20px;
     margin-bottom: 32px;
     list-style-type: disc;
     font-size: inherit;
@@ -296,9 +303,6 @@
 
 .author-bio {
     font-family: 'SF Pro Text';
-    display: flex;
-    align-items: center;
-    gap: 24px;
     padding: 36px 0;
     border-top: 1px dotted;
     font-size: 16px;
@@ -308,6 +312,8 @@
 .author-bio .author-avatar {
     width: 71.25px;
     height: 71.25px;
+    float: left;
+    margin-right: 24px;
 }
 
 .read-more {
@@ -350,7 +356,7 @@
 /* READ ME  */
 .read-me-header {
     background-color: #ffd900;
-    padding: 32px 140px;
+    padding: 65px 140px 51px 140px;
     margin-bottom: 100px;
 }
 
