@@ -189,8 +189,7 @@
     }
 
     .overall .post-desc {
-        margin-top: 24px;
-        margin-bottom: 36px;
+        margin: 24px 0 36px 0;
     }
 
     .heading-secondary {
@@ -213,6 +212,10 @@
     .all-articles .list-posts,
     .main-post .list-posts {
         grid-template-columns: 1fr;
+    }
+
+    .home-page .list-posts .post-item:nth-child(n + 7) {
+        display: none;
     }
 
     .as-featured-in .feature {

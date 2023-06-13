@@ -163,8 +163,7 @@
 
 .overall .post-desc {
     font-size: 20px;
-    margin-top: 32px;
-    margin-bottom: 52px;
+    margin: 32px 80px 52px 80px;
 }
 
 .overall .post-img {
