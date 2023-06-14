@@ -30,6 +30,8 @@ body {
     width: 350px;
     margin: 0 auto;
     margin-top: 16px;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .main-header {
@@ -43,13 +45,22 @@ body {
     align-items: center;
 }
 
+.today {
+    transition: opacity 0.15s ease-in-out;
+}
+
+.today:hover {
+    opacity: 0.85;
+}
+
 /* CALENDAR */
 .calendar-wrapper {
     background-color: #4b5462;
     border-bottom: 2px solid #5f6774;
+    position: relative;
 }
 
-.calendar-wrapper-header {
+.calendar-wrapper .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,36 +68,98 @@ body {
     padding: 8px;
 }
 
-.current-month-year {
+.calendar-wrapper [class^='current-'] {
     flex-grow: 1;
     padding: 12px 8px;
     border-radius: 4px;
     font-weight: 700;
+    transition: background-color 0.15s ease-in-out;
 }
 
-.current-month-year:hover {
+.calendar-wrapper [class^='current-']:hover {
     background-color: #374151;
 }
 
-.calendar-navigator {
+.navigator {
     display: flex;
     align-items: center;
     align-self: stretch;
     gap: 4px;
 }
 
-.calendar-navigator .icon {
+.navigator .icon {
     height: 100%;
     width: 32px;
-    background: none;
+    background-color: transparent;
+    transition: background-color 0.15s ease-in-out;
 }
 
-.calendar-navigator .icon:hover {
+.navigator .icon:hover {
     background-color: #374151;
 }
 
 .calendar-rendering {
-   padding-bottom: 8px;
+    padding-bottom: 8px;
+}
+
+.month-picking,
+.year-picking {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: #4b5462;
+}
+
+.month-picking.hide,
+.year-picking.hide {
+    z-index: -99;
+    display: none;
+}
+
+.month-picking.show,
+.year-picking.show {
+    z-index: 99;
+    display: block;
+}
+
+.year-picking .current-year-period {
+    background-color: transparent;
+    opacity: 0.7;
+}
+
+.year-picking .current-year-period:hover {
+    background-color: transparent;
+}
+
+.months,
+.years {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 64px);
+    justify-items: center;
+    align-items: center;
+}
+
+.months .month,
+.years .year {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.months .month.active,
+.years .year.active {
+    color: #4b5462;
+    background-color: #ebecee;
+}
+
+.months .month:not(.active):hover,
+.years .year:not(.active):hover {
+    background-color: #374151;
 }
 
 .days {
@@ -105,15 +178,32 @@ body {
     align-items: center;
 }
 
-.date.active {
-    color: #4b5462;
-    background-color: #ebecee;
+.date {
     width: 30px;
     height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+}
+
+.date.active {
+    color: #4b5462;
+    background-color: #ebecee;
+}
+
+.date.active:hover {
+    opacity: 0.95;
+}
+
+.date:not(.active):hover {
+    background-color: #374151;
+}
+
+.date--offset,
+.month--offset,
+.year--offset {
+    opacity: 0.5;
 }
 
 /* TIME FOCUS */
