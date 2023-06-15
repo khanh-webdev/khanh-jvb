@@ -100,6 +100,7 @@ body {
 
 .calendar-rendering {
     padding-bottom: 8px;
+    overflow: hidden;
 }
 
 .month-picking,
@@ -109,18 +110,59 @@ body {
     height: 100%;
     top: 0;
     background-color: #4b5462;
+    visibility: hidden;
+    z-index: -99;
+    transform: scale(0);
 }
 
 .month-picking.hide,
 .year-picking.hide {
-    z-index: -99;
-    display: none;
+    animation: pickingHide 0.2s ease-in-out forwards;
 }
 
 .month-picking.show,
 .year-picking.show {
-    z-index: 99;
-    display: block;
+    animation: pickingShow 0.1s ease-in-out forwards;
+}
+
+@keyframes pickingHide {
+    0% {
+        visibility: visible;
+        z-index: 99;
+        transform: scale(1);
+    }
+
+    50% {
+        visibility: visible;
+        z-index: 99;
+        transform: scale(0.5);
+    }
+
+    100% {
+        visibility: hidden;
+        z-index: -99;
+        transform: scale(0);
+    }
+}
+
+@keyframes pickingShow {
+    0% {
+        visibility: hidden;
+        z-index: -99;
+        transform: scale(0);
+    }
+
+    50% {
+        visibility: hidden;
+        z-index: -99;
+        transform: scale(0.5);
+    }
+
+    100% {
+        visibility: visible;
+        z-index: 99;
+        transform: scale(1);
+    }
 }
 
 .year-picking .current-year-period {
@@ -153,8 +195,8 @@ body {
 
 .months .month.active,
 .years .year.active {
-    color: #4b5462;
-    background-color: #ebecee;
+    color: #ebecee;
+    background-color: #15aabf;
 }
 
 .months .month:not(.active):hover,
@@ -168,6 +210,9 @@ body {
     justify-items: center;
     font-weight: 700;
     padding: 12px 0;
+    position: relative;
+    z-index: 2;
+    background-color: #4b5462;
 }
 
 .dates {
@@ -188,8 +233,8 @@ body {
 }
 
 .date.active {
-    color: #4b5462;
-    background-color: #ebecee;
+    color: #ebecee;
+    background-color: #15aabf;
 }
 
 .date.active:hover {
@@ -230,4 +275,71 @@ body {
     background-color: #5f6774;
     border-radius: 4px;
     padding: 4px 8px;
+}
+
+.dates.next {
+    animation: next 0.15s ease-in-out;
+}
+
+.months.next-month {
+    animation: next 0.15s ease-in-out forwards;
+}
+
+.years.next-year {
+    animation: next 0.15s ease-in-out forwards;
+}
+
+@keyframes next {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-100%);
+    }
+
+    51% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.dates.prev {
+    animation: prev 0.15s ease-in-out forwards;
+}
+
+.months.prev-month {
+    animation: prev 0.15s ease-in-out forwards;
+}
+
+.years.prev-year {
+    animation: prev 0.15s ease-in-out forwards;
+}
+
+@keyframes prev {
+    0% {
+        transform: translateY(0%);
+    }
+
+    50% {
+        transform: translateY(100%);
+    }
+
+    51% {
+        transform: translateY(-100%);
+    }
+    0% {
+        transform: translateY(0%);
+    }
+}
+
+.month-rendering {
+    overflow: hidden;
+}
+
+.year-rendering {
+    overflow: hidden;
 }

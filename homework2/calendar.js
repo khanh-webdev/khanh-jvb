@@ -2,7 +2,6 @@
 const dayInString = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const monthInString = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-const CELLS = 42;
 const TODAY = new Date();
 let year, month, date;
 
@@ -18,22 +17,32 @@ todayEl.textContent = `${dayInString[getDay(year, month, date)]}, ${monthInStrin
 
 const monthYearEl = document.querySelector('.current-month-year');
 monthYearEl.textContent = `${monthInString[month]} ${year}`;
+const dates = document.querySelector('.dates');
 renderCalendar();
 
 document.querySelector('.calendar-display .prev').addEventListener('click', () => {
     year = month === 0 ? year - 1 : year;
     month = month === 0 ? 11 : month - 1;
+    dates.classList.add('prev');
+    dates.addEventListener('animationend', () => {
+        dates.classList.remove('prev');
+    });
     renderCalendar();
 });
 
 document.querySelector('.calendar-display .next').addEventListener('click', () => {
     year = month === 11 ? year + 1 : year;
     month = (month + 1) % 12;
+    dates.classList.add('next');
+    dates.addEventListener('animationend', () => {
+        dates.classList.remove('next');
+    });
     renderCalendar();
 });
 
 //Month Picking
 const monthPickingEl = document.querySelector('.month-picking');
+const monthsEl = monthPickingEl.querySelector('.months');
 renderMonth();
 monthYearEl.addEventListener('click', () => {
     monthPickingEl.classList.add('show');
@@ -42,17 +51,25 @@ monthYearEl.addEventListener('click', () => {
 
 monthPickingEl.querySelector('.prev').addEventListener('click', () => {
     year--;
+    monthsEl.classList.add('prev-month');
+    monthsEl.addEventListener('animationend', () => {
+        monthsEl.classList.remove('prev-month');
+    });
     renderCalendar();
     renderMonth();
 });
 
 monthPickingEl.querySelector('.next').addEventListener('click', () => {
     year++;
+    monthsEl.classList.add('next-month');
+    monthsEl.addEventListener('animationend', () => {
+        monthsEl.classList.remove('next-month');
+    });
     renderCalendar();
     renderMonth();
 });
 
-monthPickingEl.querySelector('.months').addEventListener('click', function (e) {
+monthsEl.addEventListener('click', function (e) {
     if (e.target.closest('.month')) {
         const target = e.target.closest('.month');
         year = Number(target.dataset.year);
@@ -67,16 +84,26 @@ monthPickingEl.querySelector('.months').addEventListener('click', function (e) {
 
 //Year Picking
 const yearPickingEl = document.querySelector('.year-picking');
+const yearsEl = yearPickingEl.querySelector('.years');
 renderYear(year);
 
 let temp = year;
 yearPickingEl.querySelector('.prev').addEventListener('click', () => {
     temp -= 10;
+    yearsEl.classList.add('prev-year');
+    yearsEl.addEventListener('animationend', () => {
+        yearsEl.classList.remove('prev-year');
+    });
     renderYear(temp);
 });
 
 yearPickingEl.querySelector('.next').addEventListener('click', () => {
     temp += 10;
+    yearsEl.classList.add('next-year');
+    yearsEl.addEventListener('animationend', () => {
+        yearsEl.classList.remove('next-year');
+    });
+
     renderYear(temp);
 });
 
@@ -109,15 +136,15 @@ function getDay(year, month, date) {
 }
 
 function renderCalendar() {
+    const CELLS = 42;
     const numDates = new Date(year, month + 1, 0).getDate();
     let htmlDates = '';
     //Offset-top
     const lastDateOfPreviousMonth = new Date(year, month, 0).getDate();
     const firstDay = getDay(year, month, 1);
-    for (let i = lastDateOfPreviousMonth - firstDay + 1; i <= lastDateOfPreviousMonth; i++) {
-        htmlDates += `<div class="date date--offset">${i}</div>`;
+    for (let i = firstDay - 1; i >= 1; i--) {
+        htmlDates += `<div class="date date--offset">${lastDateOfPreviousMonth - i + 1}</div>`;
     }
-
     //Current month
     let isActive = false;
     for (let i = 1; i <= numDates; i++) {
@@ -126,13 +153,14 @@ function renderCalendar() {
     }
 
     //Offset-bottom
-    const offset = CELLS - numDates - firstDay;
+    const offsetTop = firstDay === 0 ? 0 : firstDay - 1;
+    const offset = CELLS - numDates - offsetTop;
     for (let i = 1; i <= offset; i++) {
         htmlDates += `<div class="date date--offset">${i}</div>`;
     }
 
     monthYearEl.textContent = `${monthInString[month]} ${year}`;
-    document.querySelector('.dates').innerHTML = htmlDates;
+    dates.innerHTML = htmlDates;
 }
 
 function renderMonth() {
@@ -152,15 +180,27 @@ function renderMonth() {
 }
 
 function renderYear(year) {
+    const CELLS = 16;
     const MIN = year - (year % 10);
     const MAX = MIN + 9;
-
     let htmlYears = '';
+
+    const offsetTop = MIN % 4 === 0 ? 1 : 3;
+    for (let i = 1; i <= offsetTop; i++) {
+        htmlYears += `<div class="year year--offset" data-year="${MIN - i}">${MIN - i}</div>`;
+    }
+
     let isActive = false;
     for (let i = MIN; i <= MAX; i++) {
         isActive = i === TODAY.getFullYear();
         htmlYears += `<div class="year ${isActive ? 'active' : ''}" data-year="${i}">${i}</div>`;
     }
+
+    const offsetBottom = CELLS - (MAX - MIN + 1) - offsetTop;
+    for (let i = 1; i <= offsetBottom; i++) {
+        htmlYears += `<div class="year year--offset" data-year="${MAX + i}">${MAX + i}</div>`;
+    }
+
     yearPickingEl.querySelector('.current-year-period').textContent = `${MIN} - ${MAX}`;
     document.querySelector('.years').innerHTML = htmlYears;
 }
