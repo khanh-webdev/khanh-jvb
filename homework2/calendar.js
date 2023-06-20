@@ -141,7 +141,8 @@ function renderCalendar() {
     let htmlDates = '';
     //Offset-top
     const lastDateOfPreviousMonth = new Date(year, month, 0).getDate();
-    const firstDay = getDay(year, month, 1);
+    let firstDay = getDay(year, month, 1);
+    if (firstDay === 0) firstDay = 7;
     for (let i = firstDay - 1; i >= 1; i--) {
         htmlDates += `<div class="date date--offset">${lastDateOfPreviousMonth - i + 1}</div>`;
     }
@@ -153,7 +154,7 @@ function renderCalendar() {
     }
 
     //Offset-bottom
-    const offsetTop = firstDay === 0 ? 0 : firstDay - 1;
+    const offsetTop = firstDay - 1;
     const offset = CELLS - numDates - offsetTop;
     for (let i = 1; i <= offset; i++) {
         htmlDates += `<div class="date date--offset">${i}</div>`;
